@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vue project (not part of Next.js build)
+    "vue-project/**",
   ]),
 ]);
 
