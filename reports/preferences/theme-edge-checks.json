@@ -1,0 +1,5 @@
+[
+  "Dark theme is applied by the inline head script while hydration scripts are blocked.",
+  "With localStorage unavailable, system theme and the current-page theme switch still work without runtime errors.",
+  "Live system changes are followed until an explicit theme is chosen; a saved choice then takes precedence."
+]

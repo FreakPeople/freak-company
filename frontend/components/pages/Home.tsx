@@ -1,10 +1,12 @@
 "use client";
 
+import { useLocale } from "@/components/preferences/LocaleProvider";
+
 import { trapDialogFocus } from "@/lib/dialog-focus";
 import { useState, useEffect, useRef } from "react";
-import styles from "./Home.module.css";
+import styles from "@/app/Home.module.css";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/LocalizedLink";
 
 const principles = [
   {
@@ -57,6 +59,7 @@ const faqItems = [
 ];
 
 export default function Home() {
+  const { t } = useLocale();
   const privacyRef = useRef<HTMLDialogElement>(null);
   const privacyTriggerRef = useRef<HTMLButtonElement>(null);
   const [activeFaqId, setActiveFaqId] = useState<number>(1);
@@ -100,7 +103,7 @@ export default function Home() {
     if (!formData.privacyAgree) {
       setSubmitStatus({
         type: "error",
-        message: "개인정보 수집 및 이용에 동의해 주세요.",
+        message: t("개인정보 수집 및 이용에 동의해 주세요."),
       });
       setIsSubmitting(false);
       return;
@@ -124,13 +127,15 @@ export default function Home() {
         }),
       });
 
-      if (!response.ok) throw new Error("문의 접수 실패");
+      if (!response.ok) throw new Error(t("문의 접수 실패"));
       const result = await response.json();
 
       if (result.success) {
         setSubmitStatus({
           type: "success",
-          message: "문의가 접수되었습니다. 남겨주신 연락처로 안내드리겠습니다.",
+          message: t(
+            "문의가 접수되었습니다. 남겨주신 연락처로 안내드리겠습니다.",
+          ),
         });
         setFormData({
           name: "",
@@ -144,15 +149,17 @@ export default function Home() {
       } else {
         setSubmitStatus({
           type: "error",
-          message:
+          message: t(
             "문의가 접수되지 않았습니다. 입력 내용은 유지됩니다. 아래 이메일로 문의해 주세요.",
+          ),
         });
       }
     } catch {
       setSubmitStatus({
         type: "error",
-        message:
+        message: t(
           "문의가 접수되지 않았습니다. 입력 내용은 유지됩니다. 다시 시도하거나 아래 이메일로 문의해 주세요.",
+        ),
       });
     } finally {
       window.clearTimeout(timeout);
@@ -180,56 +187,56 @@ export default function Home() {
         <div className={styles["hero-layout"]}>
           <div className={styles["hero-content"]}>
             <h1 className={styles["hero-title"]}>
-              상상은 자유롭게,
+              {t("상상은 자유롭게,")}
               <br />
-              없으면 만듭니다.
+              {t("없으면 만듭니다.")}
             </h1>
             <p className={styles["hero-subtitle"]}>
-              웹사이트, 플랫폼, SaaS.
+              {t("웹사이트, 플랫폼, SaaS.")}
               <br />
-              아이디어를 실제 서비스로 만드는 프릭입니다.
+              {t("아이디어를 실제 서비스로 만드는 프릭입니다.")}
             </p>
             <div className={styles["hero-actions"]}>
               <a className={styles["primary-link"]} href="#contact">
-                프로젝트 이야기하기
+                {t("프로젝트 이야기하기")}
               </a>
               <a className={styles["secondary-link"]} href="#services">
-                만드는 것들 살펴보기
+                {t("만드는 것들 살펴보기")}
               </a>
             </div>
             <p className={styles["hero-note"]}>
-              아직 정리되지 않은 아이디어도 괜찮습니다.
+              {t("아직 정리되지 않은 아이디어도 괜찮습니다.")}
             </p>
           </div>
           <figure
             className={styles["launch-sketch"]}
-            aria-label="아이디어를 실제 서비스로 구현하는 프릭"
+            aria-label={t("아이디어를 실제 서비스로 구현하는 프릭")}
           >
             <div className={styles["idea-note"]}>
-              “이런 것도
+              {t("“이런 것도")}
               <br />
-              만들 수 있나요?”
+              {t("만들 수 있나요?”")}
             </div>
             <div className={styles["launch-path"]} aria-hidden="true" />
             <Image
               className={styles["hero-rocket"]}
               src="/back-to-top.svg"
-              alt="로켓을 타고 출발하는 우주인"
+              alt={t("로켓을 타고 출발하는 우주인")}
               width={280}
               height={280}
               preload
               unoptimized
             />
             <figcaption className={styles["launch-caption"]}>
-              <span>아이디어에서</span>
-              <strong>실제 서비스로.</strong>
+              <span>{t("아이디어에서")}</span>
+              <strong>{t("실제 서비스로.")}</strong>
             </figcaption>
           </figure>
         </div>
         <button
           type="button"
           className={styles["scroll-down-btn"]}
-          aria-label="제공 서비스 살펴보기"
+          aria-label={t("제공 서비스 살펴보기")}
           onClick={scrollOnePage}
         >
           <Image
@@ -249,57 +256,64 @@ export default function Home() {
       >
         <div className={styles.container}>
           <div className={styles["section-heading"]}>
-            <h2 id="services-title">어떤 걸 만들고 싶으세요?</h2>
-            <p>지금 비즈니스에 필요한 디지털 제품을 함께 설계합니다.</p>
+            <h2 id="services-title">{t("어떤 걸 만들고 싶으세요?")}</h2>
+            <p>{t("지금 비즈니스에 필요한 디지털 제품을 함께 설계합니다.")}</p>
           </div>
           <div className={styles["service-grid"]}>
             {[
               {
-                category: "웹사이트",
-                title: "웹사이트 제작",
-                description:
+                category: t("웹사이트"),
+                title: t("웹사이트 제작"),
+                description: t(
                   "기업 홈페이지, 브랜드 사이트, 랜딩 페이지. 비즈니스를 이해하고 방문자의 다음 행동을 설계합니다.",
-                tags: ["기업 홈페이지", "브랜드 사이트", "랜딩 페이지"],
+                ),
+                tags: [
+                  t("기업 홈페이지"),
+                  t("브랜드 사이트"),
+                  t("랜딩 페이지"),
+                ],
               },
               {
-                category: "플랫폼",
-                title: "플랫폼 · SaaS 개발",
-                description:
+                category: t("플랫폼"),
+                title: t("플랫폼 · SaaS 개발"),
+                description: t(
                   "커뮤니티, 예약 시스템부터 업무 소프트웨어까지. 서비스의 흐름과 확장을 고려해 만듭니다.",
-                tags: ["플랫폼", "SaaS", "업무 자동화"],
+                ),
+                tags: [t("플랫폼"), "SaaS", t("업무 자동화")],
               },
               {
-                category: "제품 검증",
-                title: "MVP · QA 테스트",
-                description:
+                category: t("제품 검증"),
+                title: t("MVP · QA 테스트"),
+                description: t(
                   "핵심 기능으로 아이디어를 검증하고, 사용자 시나리오에 따라 서비스 품질을 점검합니다.",
-                tags: ["아이디어 검증", "MVP", "품질 점검"],
+                ),
+                tags: [t("아이디어 검증"), "MVP", t("품질 점검")],
               },
             ].map((service) => (
               <article
                 key={service.category}
                 className={styles["service-item"]}
               >
-                <h3>{service.title}</h3>
+                <h3>{t(service.title)}</h3>
                 <div className={styles["service-description"]}>
-                  <p>{service.description}</p>
+                  <p>{t(service.description)}</p>
                   <ul>
                     {service.tags.map((tag) => (
-                      <li key={tag}>{tag}</li>
+                      <li key={t(tag)}>{t(tag)}</li>
                     ))}
                   </ul>
                 </div>
                 <a
                   href="#contact"
-                  aria-label={`이 서비스 문의하기: ${service.title}`}
+                  aria-label={`${t("이 서비스 문의하기")}: ${t(service.title)}`}
                 >
-                  이 서비스 문의하기
+                  {t("이 서비스 문의하기")}
                 </a>
               </article>
             ))}
           </div>
           <Link href="/introduce" className={styles["text-link"]}>
-            프릭과 제공 서비스 자세히 알아보기
+            {t("프릭과 제공 서비스 자세히 알아보기")}
           </Link>
         </div>
       </section>
@@ -309,21 +323,21 @@ export default function Home() {
           <div className={styles["principles-layout"]}>
             <div>
               <h2 className={styles["section-title"]}>
-                만드는 건 달라도,
+                {t("만드는 건 달라도,")}
                 <br />
-                일하는 태도는 같습니다.
+                {t("일하는 태도는 같습니다.")}
               </h2>
               <p className={styles["section-subtitle"]}>
-                기획부터 개발, 운영까지.
+                {t("기획부터 개발, 운영까지.")}
                 <br />
-                같은 목표를 바라보며 함께합니다.
+                {t("같은 목표를 바라보며 함께합니다.")}
               </p>
             </div>
             <div className={styles["principles-list"]}>
               {principles.map((item) => (
-                <article key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                <article key={t(item.title)}>
+                  <h3>{t(item.title)}</h3>
+                  <p>{t(item.description)}</p>
                 </article>
               ))}
             </div>
@@ -336,31 +350,34 @@ export default function Home() {
       >
         <div className={styles.container}>
           <h2 id="process-title" className={styles["section-title"]}>
-            첫 대화부터, 만드는 과정까지.
+            {t("첫 대화부터, 만드는 과정까지.")}
           </h2>
           <ol className={styles["process-list"]}>
             <li>
               <span aria-hidden="true">1</span>
-              <h3>이야기하고 정리합니다</h3>
+              <h3>{t("이야기하고 정리합니다")}</h3>
               <p>
-                개발자와 직접 만나 아이디어, 필요한 기능, 작업 범위를 함께
-                정리합니다.
+                {t(
+                  "개발자와 직접 만나 아이디어, 필요한 기능, 작업 범위를 함께 정리합니다.",
+                )}
               </p>
             </li>
             <li>
               <span aria-hidden="true">2</span>
-              <h3>설계하고 만듭니다</h3>
+              <h3>{t("설계하고 만듭니다")}</h3>
               <p>
-                구현 가능한 방향을 제안하고, 진행 상황을 공유하며 기획과 개발을
-                이어갑니다.
+                {t(
+                  "구현 가능한 방향을 제안하고, 진행 상황을 공유하며 기획과 개발을 이어갑니다.",
+                )}
               </p>
             </li>
             <li>
               <span aria-hidden="true">3</span>
-              <h3>확인하고 이어갑니다</h3>
+              <h3>{t("확인하고 이어갑니다")}</h3>
               <p>
-                결과물을 함께 확인합니다. 운영 중 필요한 유지보수와 기능 확장은
-                범위를 협의합니다.
+                {t(
+                  "결과물을 함께 확인합니다. 운영 중 필요한 유지보수와 기능 확장은 범위를 협의합니다.",
+                )}
               </p>
             </li>
           </ol>
@@ -371,7 +388,7 @@ export default function Home() {
       <section id="faq" className={styles["faq-section"]}>
         <div className={styles.container}>
           <h2 className={styles["faq-section-title"]}>
-            가장 많이 물어보시는 질문
+            {t("가장 많이 물어보시는 질문")}
           </h2>
           <div className={styles["faq-content"]}>
             <div className={styles["faq-list"]}>
@@ -388,7 +405,7 @@ export default function Home() {
                     aria-controls={`faq-answer-${item.id}`}
                   >
                     <span className={styles["faq-question-text"]}>
-                      {item.question}
+                      {t(item.question)}
                     </span>
                     <span className={styles["faq-icon"]}>
                       {activeFaqId === item.id ? (
@@ -422,16 +439,18 @@ export default function Home() {
                   >
                     <div
                       className={styles["faq-answer"]}
-                      dangerouslySetInnerHTML={{ __html: item.answer }}
+                      dangerouslySetInnerHTML={{ __html: t(item.answer) }}
                     />
                   </div>
                 </div>
               ))}
             </div>
             <aside className={styles["faq-help"]}>
-              <h3>내 질문은 조금 다른가요?</h3>
-              <p>만들고 싶은 것부터 현재 고민까지, 편하게 이야기해 주세요.</p>
-              <a href="#contact">프로젝트 이야기하기</a>
+              <h3>{t("내 질문은 조금 다른가요?")}</h3>
+              <p>
+                {t("만들고 싶은 것부터 현재 고민까지, 편하게 이야기해 주세요.")}
+              </p>
+              <a href="#contact">{t("프로젝트 이야기하기")}</a>
             </aside>
           </div>
         </div>
@@ -442,16 +461,19 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles["contact-heading"]}>
             <h2 className={styles["section-title"]}>
-              이제, 대표님의
+              {t("이제, 대표님의")}
               <br />
-              아이디어를 들려주세요.
+              {t("아이디어를 들려주세요.")}
             </h2>
             <p className={styles["contact-intro"]}>
-              만들고 싶은 서비스가 있나요? 아이디어와 고민을 편하게 남겨주세요.
+              {t(
+                "만들고 싶은 서비스가 있나요? 아이디어와 고민을 편하게 남겨주세요.",
+              )}
             </p>
             <p className={styles["contact-help"]}>
-              모든 항목은 필수입니다. 참고 사이트, 필요한 기능, 희망 일정이
-              있다면 함께 알려주세요.
+              {t(
+                "모든 항목은 필수입니다. 참고 사이트, 필요한 기능, 희망 일정이 있다면 함께 알려주세요.",
+              )}
             </p>
           </div>
           <div className={styles["contact-content"]}>
@@ -476,7 +498,8 @@ export default function Home() {
                 <div className={styles["form-row"]}>
                   <div className={styles["form-group"]}>
                     <label htmlFor="contact-name">
-                      성함 <span>(필수)</span>
+                      {t("성함")}
+                      <span>{t("(필수)")}</span>
                     </label>
                     <input
                       id="contact-name"
@@ -487,13 +510,14 @@ export default function Home() {
                       onChange={(e) =>
                         setFormData((p) => ({ ...p, name: e.target.value }))
                       }
-                      placeholder="성함*"
+                      placeholder={t("성함*")}
                       required
                     />
                   </div>
                   <div className={styles["form-group"]}>
                     <label htmlFor="contact-company">
-                      업체명 <span>(필수)</span>
+                      {t("업체명")}
+                      <span>{t("(필수)")}</span>
                     </label>
                     <input
                       id="contact-company"
@@ -504,7 +528,7 @@ export default function Home() {
                       onChange={(e) =>
                         setFormData((p) => ({ ...p, company: e.target.value }))
                       }
-                      placeholder="업체명*"
+                      placeholder={t("업체명*")}
                       required
                     />
                   </div>
@@ -513,7 +537,8 @@ export default function Home() {
                 <div className={styles["form-row"]}>
                   <div className={styles["form-group"]}>
                     <label htmlFor="contact-email">
-                      이메일 <span>(필수)</span>
+                      {t("이메일")}
+                      <span>{t("(필수)")}</span>
                     </label>
                     <input
                       id="contact-email"
@@ -524,13 +549,14 @@ export default function Home() {
                       onChange={(e) =>
                         setFormData((p) => ({ ...p, email: e.target.value }))
                       }
-                      placeholder="이메일*"
+                      placeholder={t("이메일*")}
                       required
                     />
                   </div>
                   <div className={styles["form-group"]}>
                     <label htmlFor="contact-contact">
-                      연락처 <span>(필수)</span>
+                      {t("연락처")}
+                      <span>{t("(필수)")}</span>
                     </label>
                     <input
                       id="contact-contact"
@@ -541,7 +567,7 @@ export default function Home() {
                       onChange={(e) =>
                         setFormData((p) => ({ ...p, contact: e.target.value }))
                       }
-                      placeholder="연락처*"
+                      placeholder={t("연락처*")}
                       required
                     />
                   </div>
@@ -551,7 +577,8 @@ export default function Home() {
                   className={`${styles["form-group"]} ${styles["form-full"]}`}
                 >
                   <label htmlFor="contact-inquiry">
-                    프로젝트 내용 <span>(필수)</span>
+                    {t("프로젝트 내용")}
+                    <span>{t("(필수)")}</span>
                   </label>
                   <textarea
                     id="contact-inquiry"
@@ -560,7 +587,9 @@ export default function Home() {
                     onChange={(e) =>
                       setFormData((p) => ({ ...p, inquiry: e.target.value }))
                     }
-                    placeholder="어떤 서비스를 만들고 싶으신가요? 필요한 기능이나 현재 고민을 알려주세요."
+                    placeholder={t(
+                      "어떤 서비스를 만들고 싶으신가요? 필요한 기능이나 현재 고민을 알려주세요.",
+                    )}
                     rows={6}
                     required
                   />
@@ -582,7 +611,7 @@ export default function Home() {
                         }
                         required
                       />
-                      <span>개인정보 수집 및 이용 동의</span>
+                      <span>{t("개인정보 수집 및 이용 동의")}</span>
                     </label>
                     <button
                       type="button"
@@ -593,7 +622,7 @@ export default function Home() {
                         openModal();
                       }}
                     >
-                      개인정보 처리방침 보기
+                      {t("개인정보 처리방침 보기")}
                     </button>
 
                     {/* Privacy Modal */}
@@ -616,7 +645,7 @@ export default function Home() {
                           type="button"
                           className={styles["modal-close"]}
                           onClick={closeModal}
-                          aria-label="개인정보 처리방침 닫기"
+                          aria-label={t("개인정보 처리방침 닫기")}
                         >
                           &times;
                         </button>
@@ -624,78 +653,88 @@ export default function Home() {
                           id="privacy-title"
                           className={styles["modal-title"]}
                         >
-                          개인정보 처리방침
+                          {t("개인정보 처리방침")}
                         </h3>
                         <div className={styles["modal-content"]}>
                           <div className={styles["policy-section"]}>
                             <p>
-                              <strong>&apos;프릭&apos;</strong>은 고객님의
-                              개인정보를 중요하게 생각하며, 「정보통신망
-                              이용촉진 및 정보보호 등에 관한 법률」을 준수하고
-                              있습니다.
+                              <strong>{t("'프릭'")}</strong>
+                              {t(
+                                "은 고객님의 개인정보를 중요하게 생각하며, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」을 준수하고 있습니다.",
+                              )}
                             </p>
                             <p>
-                              회사는 개인정보처리방침을 통해 고객님께서 제공하신
-                              개인정보가 어떤 용도와 방식으로 이용되는지, 그리고
-                              개인정보 보호를 위해 어떤 조치를 취하고 있는지
-                              안내드립니다.
+                              {t(
+                                "회사는 개인정보처리방침을 통해 고객님께서 제공하신 개인정보가 어떤 용도와 방식으로 이용되는지, 그리고 개인정보 보호를 위해 어떤 조치를 취하고 있는지 안내드립니다.",
+                              )}
                             </p>
                             <p>
-                              개인정보처리방침이 개정되는 경우, 웹사이트
-                              공지사항 또는 개별 공지를 통해 안내드립니다.
+                              {t(
+                                "개인정보처리방침이 개정되는 경우, 웹사이트 공지사항 또는 개별 공지를 통해 안내드립니다.",
+                              )}
                             </p>
                           </div>
                           <div className={styles["policy-section"]}>
-                            <h4>■ 수집하는 개인정보 항목</h4>
+                            <h4>{t("■ 수집하는 개인정보 항목")}</h4>
                             <p>
-                              회사는 상담 및 고객 문의를 위해 아래와 같은
-                              개인정보를 수집합니다.
+                              {t(
+                                "회사는 상담 및 고객 문의를 위해 아래와 같은 개인정보를 수집합니다.",
+                              )}
                             </p>
                             <ul>
-                              <li>수집 항목: 이름, 업체명, 연락처, 이메일</li>
-                              <li>수집 방법: 홈페이지 문의하기를 통한 접수</li>
+                              <li>
+                                {t("수집 항목: 이름, 업체명, 연락처, 이메일")}
+                              </li>
+                              <li>
+                                {t("수집 방법: 홈페이지 문의하기를 통한 접수")}
+                              </li>
                             </ul>
                           </div>
                           <div className={styles["policy-section"]}>
-                            <h4>■ 개인정보의 수집 및 이용 목적</h4>
+                            <h4>{t("■ 개인정보의 수집 및 이용 목적")}</h4>
                             <ul>
-                              <li>문의 내용 확인 및 안내를 위한 연락</li>
+                              <li>{t("문의 내용 확인 및 안내를 위한 연락")}</li>
                             </ul>
                           </div>
                           <div className={styles["policy-section"]}>
-                            <h4>■ 개인정보의 보유 및 이용 기간</h4>
+                            <h4>{t("■ 개인정보의 보유 및 이용 기간")}</h4>
                             <p>
-                              개인정보는 수집 및 이용 목적이 달성된 후 지체 없이
-                              파기하며, 보유 기간은 최대 3년을 초과하지 않는
-                              것을 원칙으로 합니다.
+                              {t(
+                                "개인정보는 수집 및 이용 목적이 달성된 후 지체 없이 파기하며, 보유 기간은 최대 3년을 초과하지 않는 것을 원칙으로 합니다.",
+                              )}
                             </p>
                           </div>
                           <div className={styles["policy-section"]}>
                             <h4>
-                              ■ 개인정보 자동 수집 장치의 설치·운영 및 거부
+                              {t(
+                                "■ 개인정보 자동 수집 장치의 설치·운영 및 거부",
+                              )}
                             </h4>
                             <p>
-                              본 웹사이트는 이용자에게 맞춤 서비스를 제공하기
-                              위한 쿠키(cookie)를 사용하지 않습니다.
+                              {t(
+                                "본 웹사이트는 이용자에게 맞춤 서비스를 제공하기 위한 쿠키(cookie)를 사용하지 않습니다.",
+                              )}
                             </p>
                           </div>
                           <div className={styles["policy-section"]}>
-                            <h4>■ 개인정보 관련 민원 서비스</h4>
+                            <h4>{t("■ 개인정보 관련 민원 서비스")}</h4>
                             <p>
-                              개인정보 보호 및 관련 민원 처리를 위해 아래와 같이
-                              개인정보관리책임자를 지정하고 있습니다.
+                              {t(
+                                "개인정보 보호 및 관련 민원 처리를 위해 아래와 같이 개인정보관리책임자를 지정하고 있습니다.",
+                              )}
                             </p>
                             <ul>
-                              <li>개인정보관리책임자: 황유정</li>
-                              <li>이메일: freakmakers@gmail.com</li>
+                              <li>{t("개인정보관리책임자: 황유정")}</li>
+                              <li>{t("이메일: freakmakers@gmail.com")}</li>
                             </ul>
                           </div>
                           <div
                             className={`${styles["policy-section"]} ${styles["policy-date"]}`}
                           >
                             <p>
-                              본 방침은 <strong>2026년 02월 15일</strong>부터
-                              시행됩니다.
+                              {t("본 방침은")}
+                              <strong>{t("2026년 02월 15일")}</strong>
+                              {t("부터 시행됩니다.")}
                             </p>
                           </div>
                         </div>
@@ -709,7 +748,7 @@ export default function Home() {
                   className={styles["submit-button"]}
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "전송 중..." : "프로젝트 문의 보내기"}
+                  {isSubmitting ? t("전송 중...") : t("프로젝트 문의 보내기")}
                 </button>
                 {submitStatus && (
                   <p
@@ -721,7 +760,7 @@ export default function Home() {
                   </p>
                 )}
                 <p className={styles["email-fallback"]}>
-                  이메일로도 이야기 나눌 수 있어요.{" "}
+                  {t("이메일로도 이야기 나눌 수 있어요.")}{" "}
                   <a href="mailto:freakmakers@gmail.com">
                     freakmakers@gmail.com ↗
                   </a>

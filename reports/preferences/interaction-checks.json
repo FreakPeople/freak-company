@@ -1,0 +1,11 @@
+[
+  "System dark mode detected; manual light preference persists on reload.",
+  "Language switch opens server-rendered English route and preserves theme.",
+  "English navigation, company FAQ, manual testimonials, and contact anchor work without switching language.",
+  "English privacy policy is fully translated; modal accessibility check and focus restoration pass.",
+  "Mocked English submission failure preserves input; mocked success announces English status and clears fields. No real inquiry sent.",
+  "Theme persists across language roots and new tabs; changes synchronize between tabs.",
+  "Hero motion is a single short entrance; reduced-motion disables it.",
+  "No hydration warnings or runtime errors during all preference changes.",
+  "English HTML language, content, and metadata are present without JavaScript."
+]

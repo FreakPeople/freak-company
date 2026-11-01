@@ -1,9 +1,11 @@
 "use client";
 
+import { useLocale } from "@/components/preferences/LocaleProvider";
+
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import styles from "./Introduce.module.css";
+import Link from "@/components/LocalizedLink";
+import styles from "@/app/introduce/Introduce.module.css";
 
 const governmentProjects = [
   { icon: "medal-star", title: "기업 홈페이지", shortTitle: "기업 홈페이지" },
@@ -270,6 +272,7 @@ function ProjectIcon({ project }: { project: (typeof governmentProjects)[0] }) {
 }
 
 export default function Introduce() {
+  const { t } = useLocale();
   const [activeFaqId, setActiveFaqId] = useState<number | null>(null);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
@@ -297,21 +300,22 @@ export default function Introduce() {
         <div className={styles["hero-content"]}>
           <div className={styles["hero-text-left"]}>
             <h1 className={styles["company-title"]}>
-              아이디어를 함께 다듬고,
-              <br />쓸 수 있는 서비스로.
+              {t("아이디어를 함께 다듬고,")}
+              <br />
+              {t("쓸 수 있는 서비스로.")}
             </h1>
             <p className={styles["company-intro"]}>
-              프릭은 기획, 설계, 개발, 테스트를 함께하는
+              {t("프릭은 기획, 설계, 개발, 테스트를 함께하는")}
               <br />
-              디지털 제품 제작 팀입니다.
+              {t("디지털 제품 제작 팀입니다.")}
             </p>
             <Link href="/#contact" className={styles["company-contact"]}>
-              프로젝트 이야기하기
+              {t("프로젝트 이야기하기")}
             </Link>
           </div>
           <Image
             src="/back-to-top.svg"
-            alt="로켓을 타고 출발하는 우주인"
+            alt={t("로켓을 타고 출발하는 우주인")}
             className={styles["company-rocket"]}
             width={240}
             height={240}
@@ -325,15 +329,20 @@ export default function Introduce() {
       <section className={styles["purple-gradient-section"]}>
         <div className={styles.container}>
           <h2 className={styles["gradient-main-text"]}>
-            아이디어만 있어도 괜찮습니다. <br />
-            나머지는 FreakMakers가 함께합니다.
+            {t("아이디어만 있어도 괜찮습니다.")}
+            <br />
+            {t("나머지는 FreakMakers가 함께합니다.")}
           </h2>
           <p className={styles["gradient-sub-text"]}>
-            많은 기업과 창업자가 아이디어를 가지고 있지만,
-            <br /> 이를 실제 서비스로 만들기 위해서는 기획, 설계, 개발, 테스트,
-            배포까지 필요합니다.
-            <br /> FreakMakers가 전 과정을 함께하는 원스톱 디지털 제품 제작
-            팀입니다.
+            {t("많은 기업과 창업자가 아이디어를 가지고 있지만,")}
+            <br />
+            {t(
+              "이를 실제 서비스로 만들기 위해서는 기획, 설계, 개발, 테스트, 배포까지 필요합니다.",
+            )}
+            <br />
+            {t(
+              "FreakMakers가 전 과정을 함께하는 원스톱 디지털 제품 제작 팀입니다.",
+            )}
           </p>
         </div>
       </section>
@@ -348,20 +357,18 @@ export default function Introduce() {
             <div className={styles["team-text-block"]}>
               <div className={styles["team-number-badge"]}>1</div>
               <h2 className={styles["team-title"]}>
-                아이디어를 구조화하고
+                {t("아이디어를 구조화하고")}
                 <br />
-                서비스로{" "}
-                <span className={styles["highlight-quote"]}>
-                  &apos;설계&apos;
-                </span>
-                합니다
+                {t("서비스로")}{" "}
+                <span className={styles["highlight-quote"]}>{t("'설계'")}</span>
+                {t("합니다")}
               </h2>
               <p className={styles["team-description"]}>
-                막연한 아이디어도 괜찮습니다.
+                {t("막연한 아이디어도 괜찮습니다.")}
                 <br />
-                서비스 구조 설계, 핵심 기능 정의, UI/UX 설계까지
+                {t("서비스 구조 설계, 핵심 기능 정의, UI/UX 설계까지")}
                 <br />
-                개발 전 단계를 함께 준비해드립니다.
+                {t("개발 전 단계를 함께 준비해드립니다.")}
               </p>
             </div>
           </div>
@@ -373,15 +380,16 @@ export default function Introduce() {
             <div className={styles["team-text-block"]}>
               <div className={styles["team-number-badge"]}>2</div>
               <h2 className={styles["team-title"]}>
-                빠르게 만들고, 빠르게 검증하고,
-                <br /> 빠르게 개선합니다.
+                {t("빠르게 만들고, 빠르게 검증하고,")}
+                <br />
+                {t("빠르게 개선합니다.")}
               </h2>
               <p className={styles["team-description"]}>
-                스타트업에게 중요한 것은 완벽한 제품이 아니라
+                {t("스타트업에게 중요한 것은 완벽한 제품이 아니라")}
                 <br />
-                빠른 실행과 검증입니다.
+                {t("빠른 실행과 검증입니다.")}
                 <br />
-                MVP 중심 개발로 시장에 먼저 도달합니다.
+                {t("MVP 중심 개발로 시장에 먼저 도달합니다.")}
               </p>
             </div>
           </div>
@@ -393,16 +401,16 @@ export default function Introduce() {
             <div className={styles["team-text-block"]}>
               <div className={styles["team-number-badge"]}>3</div>
               <h2 className={styles["team-title"]}>
-                지금은 MVP라도,
+                {t("지금은 MVP라도,")}
                 <br />
-                미래 확장까지 고려해 설계합니다.
+                {t("미래 확장까지 고려해 설계합니다.")}
               </h2>
               <p className={styles["team-description"]}>
-                서비스가 성장해도 시스템 구조가 발목을 잡지 않도록
+                {t("서비스가 성장해도 시스템 구조가 발목을 잡지 않도록")}
                 <br />
-                처음부터 확장 가능한 구조로 설계합니다.
+                {t("처음부터 확장 가능한 구조로 설계합니다.")}
                 <br />
-                장기적으로 함께하는 제작 파트너가 되겠습니다.
+                {t("장기적으로 함께하는 제작 파트너가 되겠습니다.")}
               </p>
             </div>
           </div>
@@ -412,26 +420,28 @@ export default function Introduce() {
       {/* Results Section */}
       <section className={styles["results-section"]}>
         <div className={styles.container}>
-          <h2 className={styles["results-title"]}>FreakMakers 제작 실적</h2>
+          <h2 className={styles["results-title"]}>
+            {t("FreakMakers 제작 실적")}
+          </h2>
           <p className={styles["results-description"]}>
-            아이디어를 실제 서비스로 만든 결과입니다.
+            {t("아이디어를 실제 서비스로 만든 결과입니다.")}
           </p>
           <div className={styles["results-metrics"]}>
             <div className={styles["metric-box"]}>
-              <h3 className={styles["metric-title"]}>완료 프로젝트</h3>
-              <p className={styles["metric-value"]}>50건 이상</p>
+              <h3 className={styles["metric-title"]}>{t("완료 프로젝트")}</h3>
+              <p className={styles["metric-value"]}>{t("50건 이상")}</p>
             </div>
             <div className={styles["metric-box"]}>
-              <h3 className={styles["metric-title"]}>서비스 유형</h3>
-              <p className={styles["metric-value"]}>6가지 이상</p>
+              <h3 className={styles["metric-title"]}>{t("서비스 유형")}</h3>
+              <p className={styles["metric-value"]}>{t("6가지 이상")}</p>
             </div>
             <div className={styles["metric-box"]}>
-              <h3 className={styles["metric-title"]}>고객 만족도</h3>
+              <h3 className={styles["metric-title"]}>{t("고객 만족도")}</h3>
               <p className={styles["metric-value"]}>100%</p>
             </div>
             <div className={styles["metric-box"]}>
-              <h3 className={styles["metric-title"]}>재의뢰율</h3>
-              <p className={styles["metric-value"]}>80% 이상</p>
+              <h3 className={styles["metric-title"]}>{t("재의뢰율")}</h3>
+              <p className={styles["metric-value"]}>{t("80% 이상")}</p>
             </div>
           </div>
         </div>
@@ -449,10 +459,10 @@ export default function Introduce() {
                   </div>
                   <p className={styles["feature-title-text"]}>
                     <span className={styles["feature-title-full"]}>
-                      {project.title}
+                      {t(project.title)}
                     </span>
                     <span className={styles["feature-title-short"]}>
-                      {project.shortTitle}
+                      {t(project.shortTitle)}
                     </span>
                   </p>
                 </div>
@@ -460,12 +470,12 @@ export default function Introduce() {
             </div>
             <div className={styles["features-text-block"]}>
               <h2 className={styles["features-title"]}>
-                FreakMakers 핵심 서비스
+                {t("FreakMakers 핵심 서비스")}
               </h2>
               <p className={styles["features-description"]}>
-                웹사이트, 플랫폼, SaaS, 자동화 시스템, MVP, QA까지
+                {t("웹사이트, 플랫폼, SaaS, 자동화 시스템, MVP, QA까지")}
                 <br />
-                디지털 제품이라면 어떤 형태든 제작 가능합니다.
+                {t("디지털 제품이라면 어떤 형태든 제작 가능합니다.")}
               </p>
             </div>
           </div>
@@ -479,7 +489,7 @@ export default function Introduce() {
             <button
               className={styles["carousel-button"]}
               type="button"
-              aria-label="이전 후기"
+              aria-label={t("이전 후기")}
               onClick={prevSlide}
             >
               <svg
@@ -508,12 +518,12 @@ export default function Introduce() {
                       <div className={styles["testimonial-text"]}>
                         {testimonial.text.map((line, index) => (
                           <p key={index} className={styles["testimonial-line"]}>
-                            {line}
+                            {t(line)}
                           </p>
                         ))}
                       </div>
                       <p className={styles["testimonial-author"]}>
-                        {testimonial.author}
+                        {t(testimonial.author)}
                       </p>
                     </div>
                   </div>
@@ -524,7 +534,7 @@ export default function Introduce() {
             <button
               className={styles["carousel-button"]}
               type="button"
-              aria-label="다음 후기"
+              aria-label={t("다음 후기")}
               onClick={nextSlide}
             >
               <svg
@@ -544,16 +554,19 @@ export default function Introduce() {
       <section className={styles["achievement-section"]}>
         <div className={styles.container}>
           <div className={styles["achievement-header"]}>
-            <p className={styles["achievement-category"]}>FreakMakers 경쟁력</p>
+            <p className={styles["achievement-category"]}>
+              {t("FreakMakers 경쟁력")}
+            </p>
             <h2 className={styles["achievement-title"]}>
-              고객이{" "}
-              <span className={styles["highlight-purple"]}>다시 찾아오는</span>{" "}
-              제작팀,
-              <br />그 이유가 바로{" "}
+              {t("고객이")}{" "}
               <span className={styles["highlight-purple"]}>
-                &apos;이것&apos;
+                {t("다시 찾아오는")}
               </span>{" "}
-              때문입니다.
+              {t("제작팀,")}
+              <br />
+              {t("그 이유가 바로")}{" "}
+              <span className={styles["highlight-purple"]}>{t("'이것'")}</span>{" "}
+              {t("때문입니다.")}
             </h2>
           </div>
 
@@ -563,11 +576,11 @@ export default function Introduce() {
                 <div className={styles["achievement-card-content"]}>
                   <h3
                     className={styles["achievement-card-title"]}
-                    dangerouslySetInnerHTML={{ __html: item.title }}
+                    dangerouslySetInnerHTML={{ __html: t(item.title) }}
                   />
                   <p
                     className={styles["achievement-card-description"]}
-                    dangerouslySetInnerHTML={{ __html: item.description }}
+                    dangerouslySetInnerHTML={{ __html: t(item.description) }}
                   />
                 </div>
               </div>
@@ -581,9 +594,11 @@ export default function Introduce() {
         <div className={styles.container}>
           <h2 className={styles["services-title"]}>FreakMakers</h2>
           <p className={styles["services-description"]}>
-            아이디어 정리부터 서비스 설계, 개발, 테스트, 배포까지
+            {t("아이디어 정리부터 서비스 설계, 개발, 테스트, 배포까지")}
             <br />
-            디지털 제품 제작의 전 과정을 하나의 팀에서 올인원으로 제공합니다.
+            {t(
+              "디지털 제품 제작의 전 과정을 하나의 팀에서 올인원으로 제공합니다.",
+            )}
           </p>
         </div>
       </section>
@@ -592,7 +607,7 @@ export default function Introduce() {
       <section className={styles["faq-section"]}>
         <div className={styles.container}>
           <div className={styles["faq-header"]}>
-            <h2 className={styles["faq-title"]}>자주 묻는 질문</h2>
+            <h2 className={styles["faq-title"]}>{t("자주 묻는 질문")}</h2>
           </div>
           <div className={styles["faq-divider"]} />
           <div className={styles["faq-list"]}>
@@ -608,7 +623,7 @@ export default function Introduce() {
                   aria-controls={`company-faq-${item.id}`}
                 >
                   <span className={styles["faq-question-text"]}>
-                    {item.question}
+                    {t(item.question)}
                   </span>
                   <svg
                     className={`${styles["faq-icon"]} ${activeFaqId === item.id ? styles.rotated : ""}`}
@@ -631,7 +646,7 @@ export default function Introduce() {
                         {item.id === 1 && index === 3 ? (
                           <>
                             <span className={styles["underlined-text"]}>
-                              FreakMakers가 함께 진행합니다.
+                              {t("FreakMakers가 함께 진행합니다.")}
                             </span>
                           </>
                         ) : (
@@ -652,17 +667,17 @@ export default function Introduce() {
         <div className={styles["contact-banner-content"]}>
           <div className={styles["contact-banner-text-block"]}>
             <h2 className={styles["contact-banner-title"]}>
-              프로젝트 문의하기
+              {t("프로젝트 문의하기")}
             </h2>
             <p className={styles["contact-banner-description"]}>
-              아이디어가 있다면 언제든지 문의주세요.
+              {t("아이디어가 있다면 언제든지 문의주세요.")}
               <br />
-              기획부터 개발, 배포까지 함께 만들어 드리겠습니다.
+              {t("기획부터 개발, 배포까지 함께 만들어 드리겠습니다.")}
             </p>
           </div>
           <div className={styles["contact-banner-button-block"]}>
             <Link href="/#contact" className={styles["contact-banner-button"]}>
-              프로젝트 이야기하기
+              {t("프로젝트 이야기하기")}
             </Link>
           </div>
         </div>
