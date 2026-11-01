@@ -1,0 +1,382 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "loaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "64px",
+      "40px",
+      "40px",
+      "40px",
+      "40px"
+    ],
+    "overflow": [],
+    "errors": []
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "scrollWidth": 768,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "loaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "45.344px",
+      "32.96px",
+      "32.96px",
+      "32.96px",
+      "32.96px"
+    ],
+    "overflow": [],
+    "errors": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "scrollWidth": 390,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "loaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "38px",
+      "28px",
+      "28px",
+      "28px",
+      "28px"
+    ],
+    "overflow": [],
+    "errors": []
+  },
+  {
+    "route": "/",
+    "width": 320,
+    "scrollWidth": 320,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "loaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "38px",
+      "28px",
+      "28px",
+      "28px",
+      "28px"
+    ],
+    "overflow": [],
+    "errors": []
+  },
+  {
+    "route": "/introduce",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "28px",
+      "28px",
+      "28px",
+      "40px",
+      "40px"
+    ],
+    "overflow": [
+      "Introduce-module__t1qGPG__hero-bg-image",
+      "Introduce-module__t1qGPG__testimonial-card",
+      "Introduce-module__t1qGPG__testimonial-content",
+      "Introduce-module__t1qGPG__testimonial-image",
+      "Introduce-module__t1qGPG__testimonial-text",
+      "Introduce-module__t1qGPG__testimonial-line"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/introduce",
+    "width": 768,
+    "scrollWidth": 768,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "25.28px",
+      "25.28px",
+      "25.28px",
+      "32.96px",
+      "32.96px"
+    ],
+    "overflow": [
+      "Introduce-module__t1qGPG__hero-bg-image",
+      "Introduce-module__t1qGPG__testimonial-card",
+      "Introduce-module__t1qGPG__testimonial-content",
+      "Introduce-module__t1qGPG__testimonial-image",
+      "Introduce-module__t1qGPG__testimonial-text",
+      "Introduce-module__t1qGPG__testimonial-line"
+    ],
+    "errors": []
+  },
+  {
+    "route": "/introduce",
+    "width": 390,
+    "scrollWidth": 390,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "24px",
+      "24px",
+      "24px",
+      "28px",
+      "28px"
+    ],
+    "overflow": [
+      "Introduce-module__t1qGPG__hero-bg-image",
+      "Introduce-module__t1qGPG__testimonial-card",
+      "Introduce-module__t1qGPG__testimonial-content",
+      "Introduce-module__t1qGPG__testimonial-image",
+      "Introduce-module__t1qGPG__testimonial-text",
+      "Introduce-module__t1qGPG__testimonial-line"
+    ],
+    "errors": []
+  },
+  {
+    "interaction": "carousel",
+    "autoAdvance": false,
+    "manualNext": true,
+    "transition": "0.2s",
+    "reducedMotion": "1e-05s",
+    "cardHoverTransform": "none"
+  },
+  {
+    "route": "/introduce",
+    "width": 320,
+    "scrollWidth": 320,
+    "font": "pretendard, \"pretendard Fallback\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+    "fonts": [
+      {
+        "family": "pretendard",
+        "status": "loaded"
+      },
+      {
+        "family": "pretendard Fallback",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist",
+        "status": "unloaded"
+      },
+      {
+        "family": "__nextjs-Geist Mono",
+        "status": "unloaded"
+      }
+    ],
+    "different": [],
+    "animations": 0,
+    "titleSizes": [
+      "24px",
+      "24px",
+      "24px",
+      "28px",
+      "28px"
+    ],
+    "overflow": [
+      "Introduce-module__t1qGPG__hero-bg-image",
+      "Introduce-module__t1qGPG__testimonial-card",
+      "Introduce-module__t1qGPG__testimonial-content",
+      "Introduce-module__t1qGPG__testimonial-text",
+      "Introduce-module__t1qGPG__testimonial-line",
+      "Introduce-module__t1qGPG__testimonial-line"
+    ],
+    "errors": []
+  }
+]

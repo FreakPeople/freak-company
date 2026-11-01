@@ -1,0 +1,19 @@
+{
+  "root": "/private/tmp/freak-uiux-html",
+  "files_scanned": 1,
+  "passed": false,
+  "checks": {
+    "title": true,
+    "description": true,
+    "canonical": false,
+    "og_title": true,
+    "og_description": true,
+    "og_image": false,
+    "twitter_card": true,
+    "h1": true
+  },
+  "missing": [
+    "canonical",
+    "og_image"
+  ]
+}
