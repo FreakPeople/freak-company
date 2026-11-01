@@ -9,12 +9,12 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  font-family:
+    var(--font-pretendard), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #1a1a1a;
-  background: #fff;
+  color: var(--ink);
+  background: var(--background);
 }
 
 a {
@@ -26,6 +26,192 @@ button {
   font-family: inherit;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: var(--tracking-heading);
+}
+
+a,
+button {
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease;
+}
+
 img {
   max-width: 100%;
+}
+
+:root {
+  --accent: #ffc263;
+  --ink: #172332;
+  --muted: #53657c;
+  --paper: #f4f7fc;
+  --blue: #3556d8;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --header-surface: #fffffff5;
+  --line: #dce3ed;
+  --line-strong: #9aafd9;
+  --soft: #eaf0fd;
+  --field: #ffffff;
+  --field-border: #afbdd2;
+  --on-accent: #172332;
+  --focus: #9a6700;
+  --subtle-link: #3e587b;
+  --grid: #3556d810;
+  --path: #3556d88a;
+  --success-surface: #f2f6ed;
+  --success-border: #b6c1aa;
+  --error-surface: #fff5ef;
+  --error-border: #d5b3a7;
+  --error-ink: #822c15;
+  --policy-link: #715015;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lead: 1.125rem;
+  --text-lg: 1.5rem;
+  --text-card: clamp(1.375rem, 1.1rem + 1vw, 1.75rem);
+  --text-section: clamp(1.75rem, 1.1rem + 2vw, 2.5rem);
+  --text-display: clamp(2.375rem, 1.25rem + 3.3vw, 4rem);
+  --tracking-heading: -0.035em;
+  --motion-fast: 160ms;
+  --motion-standard: 200ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+body {
+  font-size: var(--text-base);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 5px;
+}
+section[id] {
+  scroll-margin-top: 16px;
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 20px;
+  color: #191a17;
+  background: #ffc263;
+  border-radius: 6px;
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0d1623;
+  --surface: #131f30;
+  --header-surface: #0d1623f5;
+  --paper: #18273b;
+  --ink: #e8eef8;
+  --muted: #b6c5dc;
+  --blue: #a3b8ff;
+  --line: #34465e;
+  --line-strong: #6885b6;
+  --soft: #20334d;
+  --field: #111e30;
+  --field-border: #68809e;
+  --focus: #ffc263;
+  --subtle-link: #b9cced;
+  --grid: #a3b8ff13;
+  --path: #a3b8ff80;
+  --success-surface: #182d26;
+  --success-border: #648b73;
+  --error-surface: #34201d;
+  --error-border: #aa6d5c;
+  --error-ink: #ffbba8;
+  --policy-link: #ffd28b;
+}
+body {
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+html[lang="en"] body {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3 {
+  text-wrap: balance;
+}
+@keyframes intro-settle {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dialog-appear {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  dialog[open] {
+    animation: dialog-appear 160ms ease-out;
+  }
+  button:active,
+  a[role="button"]:active {
+    transform: translateY(1px);
+  }
 }

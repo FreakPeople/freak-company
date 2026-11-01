@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:3010",
+  "started_at": "2026-11-01T08:17:39.087Z",
+  "viewports_planned": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "checks": {
+    "fetch_reachable": true,
+    "html_non_empty": true,
+    "browser_screenshots": "skipped-no-browser-driver"
+  },
+  "errors": [],
+  "status": 200,
+  "html_length": 35774
+}

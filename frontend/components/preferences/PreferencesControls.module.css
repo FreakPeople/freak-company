@@ -1,0 +1,39 @@
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.language,
+.theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.language:hover,
+.theme:hover {
+  background: var(--soft);
+  border-color: var(--line);
+}
+.theme svg {
+  width: 21px;
+  height: 21px;
+}
+@media (max-width: 450px) {
+  .controls {
+    gap: 0;
+  }
+  .language {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "route": "/",
+    "surface": "menu",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "route": "/",
+    "surface": "privacy",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "route": "/en",
+    "surface": "menu",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "route": "/en",
+    "surface": "privacy",
+    "theme": "dark",
+    "violations": []
+  }
+]
