@@ -79,14 +79,6 @@ export default function Home() {
     message: string;
   } | null>(null);
 
-  const scrollOnePage = () => {
-    document.getElementById("services")?.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
-  };
-
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
@@ -233,20 +225,6 @@ export default function Home() {
             </figcaption>
           </figure>
         </div>
-        <button
-          type="button"
-          className={styles["scroll-down-btn"]}
-          aria-label={t("제공 서비스 살펴보기")}
-          onClick={scrollOnePage}
-        >
-          <Image
-            src="/scroll-down.svg"
-            alt=""
-            width={64}
-            height={64}
-            unoptimized
-          />
-        </button>
       </section>
 
       <section

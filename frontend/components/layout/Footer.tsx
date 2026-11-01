@@ -56,15 +56,18 @@ export default function Footer() {
         className={styles.backTop}
         hidden={!isVisible}
         type="button"
-        onClick={() =>
+        onClick={() => {
+          // Keep focus off the footer button as it becomes hidden during scrolling.
+          document.getElementById("main-content")?.focus({ preventScroll: true });
           window.scrollTo({
             top: 0,
+            left: 0,
             behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
               .matches
               ? "instant"
               : "smooth",
-          })
-        }
+          });
+        }}
         aria-label={t("페이지 맨 위로")}
       >
         <Image
